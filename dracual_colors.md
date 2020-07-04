@@ -1,5 +1,5 @@
 # From Abhay Prasanna, Dracula theme
-
+```
 :root {
   	/* GLOBAL FONT */
   	--global-font: 'Avenir Next', sans-serif;  /* Global font (will granulate soon) */
@@ -39,3 +39,4 @@
     /* DROPDOWN MENU */
     --dropdown-menu-text: #F8F8F3;      /* Text color in dropdown menus */
 }
+```
