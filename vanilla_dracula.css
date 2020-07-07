@@ -146,10 +146,144 @@
 /* ----------------------------------------- */
 
 
+/*RR change: CHECKBOX ALGINMENT - adjust the 'top' value to move the checkbox up or down to better align with the font selected above - the default font Inter uses -6px*/
+.check-container {
+  top: -6px; 
+  padding-right: 4px;
+}
+
 /* ----------------------------------------- */
 
-/*RR change: Comment/un-comment this section to toggle scrollbars on or off
-inspired by @Malcolm Ocean
+/* JH overrides for Calendas font*/
+/* 
+.check-container {
+  top: -10px;
+}
+.rm-reference-item div.rm-block-text{
+  font-size: 16px;
+}
+#right-sidebar .rm-reference-item div[style*="display: flex;"] {
+}
+.roam-block div[style*="background-color: rgb(235, 241, 245);" ],
+.roam-block div[style*="background-color: rgb(235, 241, 245);" ] div {
+  font-size: 0.8em;
+  font-size: 16px;
+}
+.rm-reference-item textarea {
+  font-size: 16px;
+}
+*/
+
+/* ----------------------------------------- */
+
+/*RR change: SIDEBAR WIDTH - Comment/un-comment this section to toggle between a 50/50 layout between the main section and the sidebar.
+inspried by David Cranall https://davidcrandallwrites.com/split-screen-and-rtl-custom-css-scripts-for-roam/*/
+
+.roam-center {
+  flex-basis: 50% !important;
+}
+
+/* ----------------------------------------- */
+
+/* RR change: SEARCHBAR - Comment/un-comment this section to make the search bar full width */ 
+
+.rm-find-or-create-wrapper {
+  flex: 0 1 100% !important;
+}
+
+/* ----------------------------------------- */
+
+/*RR change: SEARCH RESULTS WRAPPING - Wraps text when performing an inline search with [[]] or (())*/
+
+.bp3-text-overflow-ellipsis {
+    text-overflow: unset;
+    white-space: unset;
+}
+
+/* ----------------------------------------- */
+
+/* .roam-center div:first-child {
+  padding-right: calc((100% - 900px) / 2) !important;
+}
+.roam-block-container {
+  max-width: calc(1024px - 80px);        
+}
+.roam-center .roam-article .rm-block-text {
+ max-width: 680px;
+}
+#right-sidebar #roam-right-sidebar-content .rm-block-text {
+  max-width: 680px; 
+} */
+
+/* ----------------------------------------- */
+
+.rm-block-text {
+ max-width: 100%;
+}
+
+/*RR change: PAGE WIDTH - Un-comment the section below to maximize page width, line length, and images widths */
+
+/* 
+.roam-block-container {
+  max-width: 100% !important; 
+}
+div.roam-center > div:first-child {
+    padding-right: calc((100% - 950px) / 2) !important;
+    padding-left: calc((100% - 1500px) / 2) !important;
+}
+.hoverparent[style^='position: relative; width: 500px;'] {
+    width: 100% !important;
+}
+.hoverparent .react-resizable[style^='width: 500px;'] {
+    width: 100% !important;
+}
+.react-resizable[style^='width: 580px;'], 
+.react-resizable[style^='width: 720px;'] {
+  width: 100% !important;
+}
+.hoverparent[style^="position: relative; width: 580px;"],
+.hoverparent[style^="position: relative; width: 720px;"] {
+  width: 100% !important;
+}
+*/
+
+/* ----------------------------------------- */
+
+/*RR change: SEARCH/TOOLBAR - Uncomment the following section to hide the tool bar when not in use. A great idea from @Devon. Source: https://gist.github.com/devonzuegel/f54de76cbf0c0355d93e721c89f45787;
+ */
+
+/* 
+#roam-right-sidebar-content > div {
+  border-bottom: none !important;
+}
+.check-container {
+  padding-right: 4px;
+}
+.roam-body-main {
+  height: 100% !important;
+  top: 0 !important;
+}
+.roam-topbar {
+  opacity: 0;
+  transition: opacity 200ms;
+  z-index: 1;
+  background: none;
+  width: calc(100% - 40px);
+  padding: 0;
+}
+.roam-topbar:hover, .roam-topbar:focus-within {
+  opacity: 1;
+  transition: opacity 200ms;
+}
+#right-sidebar button {
+  z-index: 100;
+} 
+*/
+
+/* ----------------------------------------- */
+
+/*RR change: SCROLLBARS - Comment/un-comment this section to toggle scrollbars on or off
+inspired by @Malcolm Ocean*/
 
 div::-webkit-scrollbar {
   width: 10px;
@@ -163,110 +297,227 @@ div::-webkit-scrollbar-thumb {
 
 /* ----------------------------------------- */
 
-/* Mobile Bar */
-
-#mobile-capture {
-    background-color: var(--main-background) !important;
-}
-
-#mobile-capture textarea, #mobile-capture input {
-    background-color: var(--secondary-background) !important;
-}
-#mobile-capture textarea::placeholder, #mobile-capture input::placeholder {
-    color: var(--font) !important;
-}
-#rm-mobile-bar {
-    background-color: var(--highlighted-background) !important;
-}
-#rm-mobile-bar .bp3-button::before, #rm-mobile-bar .bp3-button i::before {
-    color: var(--primary) !important;
-}
-
-/* ----------------------------------------- */
-
-/* Graph Dropdown Menu */
-
-.roam-sidebar-container .rm-db-title-container {
-  display: flex;
-  align-items: center;
-  align-content: space-between;
-  width: 100%;
-  max-width: 80%;
-}
-.roam-sidebar-container .rm-db-title-container:hover {
-  cursor: pointer;
-  background-color: var(--highlighted-background);
-}
-.roam-sidebar-container .rm-db-title-container .rm-db-title {
-  margin-top: 4px;
-  padding: 4px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-weight: bold;
-  color: var(--font);
-}
-.roam-sidebar-container .rm-graph-dropdown {
-  max-height: 70vh;
-  overflow: scroll;
-  font-size: 14px;
-  font-family: var(--main-font);
-}
-.roam-sidebar-container .rm-graph-dropdown a {
-  color: var(--font);
-}
-.bp3-menu-header {
-  border-top: 1px solid var(--highlighted-background);
-}
-.bp3-menu-header > h6 {
-  color: var(--font);
-}
-ul.bp3-menu.rm-graph-dropdown {
-  background-color: var(--main-background);
-  border: 1px solid var(--highlighted-background);
-}
-
-/* ----------------------------------------- */
-
-/*RR change: decrease the line spacing in the breadcrumbs for referenced items*/
-.rm-reference-item div[style*="display: flex;"] {
+/*RR change: BREADCRUMBS - */
+/* .rm-reference-item div[style*="display: flex; flex-wrap: wrap; margin-left: 4px;"] {
     line-height: var(--breadcrumb-line-height);
     font-size: var(--breadcrumb-font-size);
-    color: var(--breadcrumb-color) !important; /*RR change: Added variable for the breadcrumb navigation in reference blocks*/
+    color: var(--breadcrumb-color) !important;  */
+    /*RR change: Added variable for the breadcrumb navigation in reference blocks*/
+
+/*RR change: decrease the line spacing in the breadcrumbs for referenced items*/
+.zoom-mentions-view span {
+padding-top: 0 !important;
+padding-bottom: 0 !important;
 }
-/*RR change: reference block font size adjustment*/
-.rm-reference-item div.rm-block-text{
-  font-size: 16px;
+
+/* RR change: Comment/un-comment to remove checkboxes in breadcrumb navigation */
+
+.roam-reference-item > div:first-child:not(.roam-log-container) > div:first-child label.check-container,
+.roam-article > div:first-child:not(.roam-log-container) > div:first-child label.check-container {
+  display: none;
 }
+
+/* ----------------------------------------- */
+
+/* ----------------------------------------- */
+/* RR change: QUERIES - Query results options */
 
 /* Show empty query message */
-/*
-.rm-block-text .rm-reference-main div:first-child:empty:after {
+.rm-block-text .rm-reference-main .rm-mentions:empty:after {
   content: var(--no-query-results);
-  color: var(--no-query-results-color)
+  color: var(--no-query-results-color);
+  font-family: var(--main-font);
+  padding: var(--s1);
 }
-/* MINIMAL UI FOR QUERIES THAT HAVE APPENDED #MINIMAL BEFORE THE QUERY FORMULA */
-
-[data-tag='minimal'], [data-tag='minimal'] + .rm-query .rm-title-arrow-wrapper, [data-tag='minimal'] + .rm-query .zoom-mentions-view{display:none!important;} [data-tag='minimal'] + .rm-query .rm-query-title::after{content: '#minimal'}
-
-/* Query colors */
-
 .rm-query {
-    border: 0.5px solid var(--highlighted-background);
-    padding-bottom: var(--s1);
-    border-top-left-radius: 7px;
-    border-top-right-radius: 7px;
-    border-radius: 7px;
+  /* border: 0.5px solid #38332e; */
+  padding-bottom: var(--s1);
+  /* border-top-left-radius: 7px;
+  border-top-right-radius: 7px; */
+  border-radius: 7px;
+  border: 0.75px solid var(--query-results-border);
 }
 .rm-query .rm-query-title {
-    color: var(--primary);
-    background-color: var(--secondary-background);
-    padding: var(--s1);
-    font-size: .8em;
-    border-top-left-radius: 7px;
-    border-top-right-radius: 7px;
+  /* color: #508bb5; */
+  /* background-color: #38332e; */
+  padding: var(--s1);
+  font-size: .8em;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  background-color: var(--reference-item-bg);
+  color: var(--breadcrumb-color);
 }
 
-/*@import "../fonts/Inter/inter.css";*/
+/*RR change: HIDE QUERY SCRIPT - Comment/uncomment to hide the original query and revert back to legacy behavior */
+
+/* 
+.rm-query .rm-query-title {
+  display: none;
+}
+ */
+
+/* RR change: MINIMIZE QUERIES: add any one of the following tags before the beginning of your query (in the same block):
+    #min-title = hides the page reference link / page title
+    #min-con = hides the contextual reference information (breadcrumbs)
+    #minimal = hides both the title and the context
+    #min-q = hides the query string, similar to legacy behavior
+    #min-all = hides everything — title, context, and query string
+inspired by Matt Goldenberg */
+
+[data-tag="minimal"], 
+[data-tag="minimal"] + .rm-query .rm-title-arrow-wrapper,
+[data-tag="minimal"] + .rm-query .zoom-mentions-view {
+  display:none!important; /* hide page reference (title) and mention context (breadcrumbs) */
+}
+[data-tag="min-title"], [data-tag="min-title"] + .rm-query .rm-title-arrow-wrapper {
+display:none!important; /* hide page reference (title) */
+}
+[data-tag="min-con"], [data-tag="min-con"] + .rm-query .zoom-mentions-view {
+  display:none !important;  /* hide mention context (breadcrumbs) */
+}
+[data-tag="min-q"], 
+[data-tag="min-q"] + .rm-query .rm-query-title {
+  display:none !important;  /* hide the query string */
+}
+[data-tag="min-all"], 
+[data-tag="min-all"] + .rm-query .zoom-mentions-view,
+[data-tag="min-all"] + .rm-query .rm-title-arrow-wrapper,
+[data-tag="min-all"] + .rm-query .rm-query-title {
+  display:none !important;  /* hide everything */
+}
+[data-tag="minimal"] + .rm-query .rm-query-title::after,
+[data-tag="min-title"] + .rm-query .rm-query-title::after,
+[data-tag="min-con"] + .rm-query .rm-query-title::after{
+  content: " #minimal" /* add a tag to the query string to indicate this query has been minimized */
+}
+
+/* ----------------------------------------- */
+
+/*RR change: CUSTOM TAGS: Uncomment to use the section below to create custom styles for specific tags. Change "Meeting" to match some portion of the title of the tag you want to customize. Adjust the background-color value ("F00") and color value ("fff") to suite your preferences. Duplicate the section for each new tag to be customized */
+
+ 
+span[data-tag*="Meeting"] {
+  background-color: #1189BD;
+  color: #bbb;
+  padding: 0.3125em 0.625em 0.1875em;
+  line-height: 1.2em;
+  font-weight: 500;
+}
+
+
+
+ /*RR change: CUSTOM LINKS: Uncomment to use the section below to create custom styles for specific links. Change "Theme" to match some portion of the title of the link you want to customize. Adjust the background-color value ("F00") and color value ("fff") to suite your preferences. Duplicate the section for each new link to be customized*/
+
+/* 
+span[data-link-title*="Theme"] .rm-page-ref-link-color {
+  background-color: #F00;
+  color: #fff;
+  padding: 3px 7px;
+  line-height: 2em;
+  font-weight: 500;
+}
+ */
+
+/* ----------------------------------------- */
+
+/*RR change: ATTRIBUTE STYLES: Uncomment and customize this section to style all attributes */
+
+/* .roam-block span strong[style*='cursor: pointer;'] {
+    color: #f00 !important;
+} */
+
+/* ----------------------------------------- */
+
+/*RR change: PAGE LINK STYLES: Uncomment to use the section below to create custom styles for specific links. Change "X" to match some portion of the title of the link you want to customize. Adjust the background-color value ("F00") and color value ("fff") to suite your preferences. Duplicate the section for each new link to be customized*/
+
+/* 
+span[data-link-title*="X"] .rm-page-ref-link-color,
+span[data-link-title*="X"] .rm-page-ref-namespace-color {
+  background-color: #F00;
+  color: #fff;
+  padding: 0.3125em 0.625em 0.1875em;  
+  line-height: 2em;
+  font-weight: 500;
+  border-radius: 0.1875em;
+}
+*/
+
+/* ----------------------------------------- */
+
+/*RR change: SIDEBAR IMAGE - comment/uncomment this section to add a backgound image to the sidebar - by Daniel van der Merwe*/
+
+/* 
+.roam-sidebar-container {
+  overflow: hidden !important;
+}
+.roam-sidebar-container.noselect:before {
+  background-image: url(https://images.unsplash.com/photo-1589809489704-71becdce06f0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80);
+  width: 100%;
+  height: 100%;
+  content: "";
+  position: absolute;
+  background-repeat: no-repeat;
+  background-position: 75% 40%;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+  opacity: 0.3;
+  filter: blur(4px);
+}
+ */
+
+
+/* ----------------------------------------- */
+
+/*RR change: DEFAULT TEXT - a small addition to the placeholder text to Daily Notes or Pages to help get you started */
+div#block-input-ghost span:before {
+  content: "Cmd+enter or ";
+}
+
+/* ----------------------------------------- */
+
+.roam-article div {
+  font-family: var(--main-font);
+}
+
+/* ----------------------------------------- */
+
+/*RR change: POMODORO - Comment/un-comment this section to apply custom styling to the the Pomodoro timer */
+/* ------------- Red Pomodoro ------------- */
+.rm-pomodoro {
+  background: var(--reference-item-bg) !important;
+  color: #FC5963 !important;
+  padding: 2px 12px;
+  line-height: 1.7em;
+  font-weight: 600;
+  border-radius: 2em;
+  border: 1px solid #FC596370;
+}
+
+.rm-pomodoro::first-letter {
+  margin-right: 4px;
+}
+
+/* ----------------------------------------- */
+
+.rm-reference-container span[style*="color: red;"] {
+    color: var(--main-font-color) !important;
+}
+/* ----------------------------------------- */
+
+/*RR change: PAGE TITLE default settings*/
+
+h1,
+h1 textarea.rm-title-textarea {
+    font-size: 2.25rem;
+}
+
+
+/* ----------------------------------------- */
+/* Start of standard Roam Styles */
+/* ----------------------------------------- */
+
+/* @import "../fonts/Inter/inter.css"; */
 .loading-astrolabe {
   margin: auto;
   position: relative;
@@ -391,7 +642,7 @@ ul.bp3-menu.rm-graph-dropdown {
   overflow-y: scroll;
   margin-bottom: 25px;
 }
-#scroll-1::-webkit-scrollbar-track {  
+#scroll-1::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   border-radius: 8px;
   background-color: #F5F5F5;
@@ -744,34 +995,90 @@ div.rm-emoji-button {
   font-weight: 600;
 }
 .kanban-board {
-  min-width: 100%;
-  min-height: 48px;
-  padding: 8px;
-  overflow-x: scroll;
   /*background-color: #a7b6c2;*/
+  max-width: 100vw;
+  padding: 12px;
+  /* min-width: 100%;
+  min-height: 48px;
+  overflow-x: scroll; */
   background-color: var(--kanban-board-bg); /*RR change: dark background color for board*/
 }
+.kanban-board .kanban-column-container {
+  display: flex;
+  overflow-x: scroll;
+}
 .kanban-column {
+  cursor: pointer;
+  flex: 1 0 200px;
+  flex-wrap: nowrap;
+  /*background-color: #ededed;*/
   margin: 0px 4px 0px 4px;
   padding: 4px;
   min-width: 200px;
-  /*background-color: #ededed;*/
   background-color: var(--kanban-column-bg); /*RR change: column background color*/
 }
 .kanban-title {
   text-align: center;
+  overflow: hidden;
+  min-height: 40px;
+  max-height: 40px;
+  padding: 4px 0px 8px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #5c7080;
   color: var(--kanban-column-font-color); /*RR change: Orange column title color*/
 }
 .kanban-card {
+  /*background-color: white;*/
   margin: 8px;
   padding: 8px;
-  /*background-color: white;*/
   background-color: var(--kanban-card-bg); /*RR change: Grey card background color*/
   color: var(--kanban-card-font-color); /*RR change: Blue ard text color*/
 }
 div.kanban-title,
 div.kanban-card {
   font-family: var(--main-font); /*RR change: font*/
+}
+.rm-full-width {
+  margin-right: -20%;
+}
+.rm-embed-container {
+  position: relative;
+  display: flex;
+  /* background-color: #ebf1f5; */
+  margin-top: -3px;
+  margin-left: -7px;
+  padding-left: 4px;
+  margin-bottom: -3px;
+  background-color: var(--reference-item-bg); /*RR change: added customization variable*/
+  border-radius: 6px; /*RR change: rounded corners*/
+
+}
+.rm-embed-container .rm-embed-container {
+  background-color: #f5f8fa;
+  background-color: var(--reference-item-bg);
+}
+.rm-embed-container .rm-embed-container .rm-embed-container {
+  /* background-color: #ced9e0; */
+  background-color: var(--reference-item-bg);
+}
+.rm-embed-container .rm-embed-edit {
+  position: absolute;
+  opacity: 0;
+}
+.rm-embed-container:hover > .rm-embed-edit {
+  cursor: text;
+  top: 0px;
+  right: 20px;
+  opacity: 1;
+  transition: all 300ms ease-in;
+}
+.rm-embed-inner-block-hide {
+  cursor: auto;
+  margin-left: -42px;
+  transition: all 100ms ease-in;
+}
+.rm-embed-inner-block-hide:hover {
+  margin-left: -8px;
 }
 .roam-sidebar-container .roam-sidebar-content .starred-pages-wrapper .starred-pages .rm-dnd-separator {
   position: relative;
@@ -791,6 +1098,25 @@ div.kanban-card {
   border-radius: 10px;
   /*background-color: #5c7080;*/
 }
+.CodeMirror-activeline-background {
+  background: transparent !important;
+}
+.CodeMirror-focused .CodeMirror-activeline-background {
+  background: rgba(100, 100, 100, 0.1) !important;
+}
+html[data-roam-layout-theme="Compact"] {
+  --s1: 4px;
+}
+html[data-roam-layout-theme="Cozy"] {
+  --s1: 12px;
+}
+html[data-roam-color-theme="Roam-Classic"] {
+  --primary-color: #137cbd;
+}
+html[data-roam-color-theme="Alexandretta"] {
+  --primary-color: #48aff0;
+  --background-color: #30404d;
+}
 html {
   font-family: 'Inter', sans-serif;
 }
@@ -799,6 +1125,11 @@ html {
     font-family: 'Inter var', sans-serif;
   }
 }
+/* :root {
+  --primary-color: #137cbd;
+  --s1: 8px;
+  --background-color: #e1e8ed; 
+} */
 body {
   overscroll-behavior: none;
 }
@@ -833,7 +1164,6 @@ body {
   overflow: hidden;
   position: relative;
   background-color: var(--body-bg); /*RR change: Dark background color*/
-
 }
 .roam-body .roam-app {
   height: 100%;
@@ -847,9 +1177,7 @@ body {
   /*color: #202b33;*/
   /*RR change: font, blue text and background highlight*/
   color: var(--h1-font-color);
-  /* background-color: var(--h1-bg); */
-  padding-left: 0px;
-  font-family: var(--main-font); 
+  font-family: var(--main-font);
 }
 .roam-body .roam-app .roam-sidebar-container {
   position: absolute;
@@ -862,7 +1190,6 @@ body {
   /*background-color: #2f3437;*/
   /*background-color: #182026;*/
   background-color: var(--left-sidebar-bg); /*RR change: darken the sidebar*/
-
 }
 .roam-body .roam-app .roam-sidebar-container .roam-hover-sidebar-reveal {
   position: absolute;
@@ -944,10 +1271,10 @@ body {
 }
 .roam-body .roam-app .roam-main .roam-article {
   position: relative;
-  padding: 32px 42px 120px;
+  padding: 16px 42px 120px;
 }
 .roam-body .roam-app .roam-main .roam-article .rm-title-display {
-  margin-bottom: 16px;
+  margin-bottom: 32px;
 }
 .pointer {
   cursor: pointer;
@@ -963,6 +1290,8 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  /* border-bottom: 1px solid #eee; */ 
+  border-color: var(--top-border-color); /*RR change: removed border*/
   background-color: transparent; /*RR change: allow background to show through*/
 }
 .trunc {
@@ -1074,8 +1403,9 @@ body {
 }
 #buffer {
   display: flex;
+  /* z-index: 2; */
   flex-direction: column;
-  z-index: 10000; /*RR change: make sure the help menu popup always appears on top*/
+  z-index: 1000; /*RR change: make sure the help menu popup always appears on top*/
 }
 #buffer .help-title {
   color: #f5f8fa;
@@ -1101,11 +1431,11 @@ body {
 .roam-table th,
 .roam-table td,
 .roam-table tr {
+  /*font-size: 12px;*/
   min-width: 100px;
   max-height: 20px;
   padding: 8px 16px;
   margin: 0;
-  /*font-size: 12px;*/
   /*border: 1px solid grey;*/
   font-size: 0.9em; /*RR change: font size*/
   border: 1px solid var(--table-border); /*RR change: darken border*/
@@ -1170,9 +1500,11 @@ body {
   font-size: 7px;
 }
 .CodeMirror {
+  /* font-family: monospace; */
   font-family: var(--code-font); /*RR change: added theme font*/
 }
 .CodeMirror .CodeMirror-code pre {
+  /* font-family: monospace; */
   font-family: var(--code-font); /*RR change: added theme font*/
   box-shadow: none;
 }
@@ -1194,7 +1526,8 @@ body {
 .rm-page-ref-tag {
   /*color: #a7b6c2;*/
   color: var(--tag-font-color); /*RR change: theme color*/
-  background-color: transparent; border-radius: 3px; padding: 2px 3px 2px 3px;
+  border-radius: var(--tag-radius);
+  padding: var(--tag-padding);
 }
 
 /*RR change: added tag hover style*/
@@ -1203,7 +1536,6 @@ span.rm-page-ref.rm-page-ref-tag:hover {
   color: var(--tag-font-color-hover) !important;
   background-color: var(--tag-hover-bg);
   text-decoration: none;
-
 }
 .rm-page-ref-brackets {
   /*color: #a7b6c2;*/
@@ -1213,17 +1545,20 @@ span.rm-page-ref.rm-page-ref-tag:hover {
   /*color: #106ba3;*/
   color: var(--page-link-color); /*RR change: theme color*/
 }
+
+/*RR change: added option to change the ref link color on Daily Notes page */
+.roam-log-page .rm-page-ref-link-color {
+  color: var(--daily-notes-link-color);    
+}
 .rm-page-ref-namespace-color {
-  color: var(--primary-light);
+  color: green;
 }
 .rm-block-ref {
-  /* padding: 4px 2px; */
-  padding: 0 2px; /*RR change: reduced top and bottom padding*/
+  padding: 2px 2px; /*RR change: reduced top and bottom padding*/
   margin: -4px 0;
   display: inline;
+  /* border-bottom: 0.5px solid #d8e1e8; */
   cursor: alias;
-  /*border-bottom: 1px solid #ced9e0;*/
-  /*font-size: 0.9em;*/
   /*RR change: keep the references blocks the same size*/
   border-bottom: 1px solid var(--block-ref-border);
   font-size: var(--block-ref-font-size);
@@ -1299,11 +1634,21 @@ div.rm-block-ref {
   -ms-transform: rotate(45deg);
   transform: rotate(40deg) scale(0.8);
 }
+/*RR change: align checkboxes in zoomed-in headings */
+.rm-level1 label.check-container {
+  margin-bottom: 17px;
+  margin-right: -3px;
+}
 #roam-sidebar-logo a {
   text-decoration: none;
 }
 #roam-sidebar-logo:hover {
   background-color: #10161a;
+}
+/* RR change: more subtle logo */
+#roam-sidebar-logo img,
+#roam-sidebar-logo span {
+  opacity: 0.4;
 }
 .rm-find-or-create-wrapper {
   position: relative;
@@ -1330,43 +1675,16 @@ div.rm-block-ref {
 }
 .rm-find-or-create-wrapper .rm-menu-item .rm-search-list-item {
   word-break: break-word;
-  color: #8a9ba8; /*red RR change: this is the search results body text color*/
+  /* color: #8a9ba8;  */
+  color: var(--search-body-font-color); /*RR change: this is the search results body text color*/
   overflow-wrap: break-spaces;
   margin-left: -20px;
 }
 .rm-fill {
   width: 100%;
 }
-.bp3-icon-export {
-  margin-left: 30px; /*RR change: added a little space between export and delete buttons */
-}
-.bp3-control .bp3-control-indicator {
-    background-clip: padding-box;
-    background-color: #555;
-    background-image: -webkit-gradient(linear,left top,left bottom,from(rgba(82, 82, 82, 0.8)),to(rgba(0,0,0,0)));
-    /* background-image: none; */
-    border: 0;
-    -webkit-box-shadow: inset 0 0 0 1px rgba(16,22,26,0.2), inset 0 -1px 0 rgba(16,22,26,0.1);
-    box-shadow: inset 0 0 0 1px rgba(16,22,26,0.2), inset 0 -1px 0 rgba(16,22,26,0.1);
-    cursor: pointer;
-    display: inline-block;
-    font-size: 16px;
-    height: 1em;
-    margin-right: 10px;
-    margin-top: -3px;
-    position: relative;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    vertical-align: middle;
-    width: 1em;
-    /* border: 1px solid #137cbd; */
-}
-.bp3-control:hover .bp3-control-indicator {
-  background-color: #137cbd;
-  background-image: none;
-}
+
+/* ----- section removed from latest style sheet ----- */
 .rm-pages-sort-menu-item {
   padding-right: 16px;
   padding-left: 16px;
@@ -1415,6 +1733,41 @@ div.rm-block-ref {
   padding: 8px 4px;
   flex: 1 0 15%;
 }
+
+/* ----- END section removed from latest style sheet ----- */
+
+
+.bp3-icon-export {
+  margin-left: 30px; /*RR change: added a little space between export and delete buttons */
+}
+.bp3-control .bp3-control-indicator {
+    background-clip: padding-box;
+    background-color: #555;
+    background-image: -webkit-gradient(linear,left top,left bottom,from(rgba(82, 82, 82, 0.8)),to(rgba(0,0,0,0)));
+    /* background-image: none; */
+    border: 0;
+    -webkit-box-shadow: inset 0 0 0 1px rgba(16,22,26,0.2), inset 0 -1px 0 rgba(16,22,26,0.1);
+    box-shadow: inset 0 0 0 1px rgba(16,22,26,0.2), inset 0 -1px 0 rgba(16,22,26,0.1);
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    height: 1em;
+    margin-right: 10px;
+    margin-top: -3px;
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    vertical-align: middle;
+    width: 1em;
+    /* border: 1px solid #137cbd; */
+}
+.bp3-control:hover .bp3-control-indicator {
+  background-color: #137cbd;
+  background-image: none;
+}
+
 .rm-all-pages {
   height: 100%;
   padding: 16px 50px 50px;
@@ -1662,13 +2015,16 @@ div.rm-block-ref {
   font-size: 12px;
   margin-right: 0px;
 }
+.rm-reference-main {
+  padding-top: 8px;
+}
 .rm-reference-item {
   margin-top: 8px;
   margin-right: 8px;
   flex: 1 1 100%;
   word-break: break-word;
-  padding-right: 8px;
   /*background-color: #f5f8fa;*/
+  padding-right: 8px;
   /*RR change: background color and spacing*/
   background-color: var(--reference-item-bg);
   border-radius: 7px;
@@ -1679,53 +2035,83 @@ div.rm-block-ref {
 .rm-reference-item div {
   font-family: var(--main-font);
 }
-
 /*RR change: adjusting disclosure arrow position for references*/
 .rm-reference-item .controls .block-expand {
   margin-top: 0;
 }
-
 /*RR change: reference font*/
 div.rm-reference-container {
   font-family: var(--main-font);
   margin-bottom: 2em; /*RR change: give a little breathing room for the unreferenced links section*/
 }
-
-.rm-level1 div.rm-block-text {
-  font-weight: 400;
-  font-size: 1.2em;
-  /* font-size: var(--main-font-size); RR change: font size reduction */
+.rm-level1 {
   /*font-family: 'Inter', sans-serif;*/
+  font-weight: 400;
+  font-size: 1.8rem;
+  /* color: var(--h1-font-color); */
   font-family: var(--main-font); /*RR change: font change*/
+  /* background-color: var(--h1-bg); */
+  /* padding-left: 10px; */
+  /* margin-top: -4px !important; */
 }
 .rm-level1 textarea {
   line-height: 1.2;
-  font-size: 1.2em;
 }
 .rm-level1 .roam-block {
   line-height: 1.2;
 }
-/* .rm-level2 div.rm-block-text{ */
-.rm-level2 div.rm-block-text {
-  /*font-family: 'Inter', sans-serif !important;*/
+.rm-level1 .rm-block-text {
+  font-size: 1.8rem;
+}
+.rm-level2 {
+  /* font-family: 'Inter', sans-serif !important; */
   font-weight: 400;
-  font-size: 1.4em;
+  font-size: 1.4rem;
   font-family: var(--main-font);
+  color: var(--h2-font-color);
+  /* margin-top: -5px !important; */
 }
 .rm-level2 textarea {
   line-height: 1.2;
-  font-size: 1.4em;
+  margin-top: 3px;
+  /* font-size: 1.4em; */
 }
-.rm-level3 div.rm-block-text {
-  font-weight: 500;
-  font-size: 1.2em;
+.rm-level2 .rm-block-text {
+  font-size: 1.4rem;
+}
+.rm-level3 {
+  font-weight: 700;
+  font-size: 1.2rem;
   /* color: #5c7080; */
+    color: var(--h3-font-color);
   font-family: var(--main-font);
 }
 .rm-level3 textarea {
   line-height: 1.2;
-  font-size: 1.2em;
-  font-weight: normal;
+  margin-top: 2px;
+  /* font-size: 1.2em; */
+  /* font-weight: normal; */
+}
+
+/*RR change: Header styles*/
+.roam-app h1 {
+  /* color: var(--h1-font-color); */
+  /* background-color: var(--h1-bg); */
+  /* padding-left: 10px; */
+  margin-top: -4px !important;
+}
+.roam-app h2 {
+  /* color: var(--h2-font-color); */
+  /* background-color: var(--h1-bg); */
+  /* padding-left: 10px; */
+  margin-top: -5px !important;
+}
+.roam-app h3 { 
+  /* font-weight: bold; */
+  /* color: var(--h3-font-color); */
+  /* background-color: var(--h1-bg); */
+  /* padding-left: 10px; */
+  margin-top: 3px !important;
 }
 
 .rm-title1 {
@@ -1802,9 +2188,9 @@ div.rm-reference-container {
   padding: 2px;
 }
 .roam-highlight {
+  /* background-color: #fef09f; */
   margin: -2px;
   padding: 2px;
-  /* background-color: #fef09f; */
   background-color: var(--highlight-background-color);
   color: var(--highlight-font-color); /*RR change: invert the highlighted text color*/
 }
@@ -1820,9 +2206,11 @@ div.rm-reference-container {
 }
 .rm-encrypted-block {
   font-weight: 300;
+  /* color: #8a9ba8; */
   color: var(--encrypted-font-color);
   font-size: 12px;
   border-radius: 4px;
+  /* background-color: #f5f8fa; */
   background-color: var(--encrypted-bg);
   padding: 2px 4px;
   display: inline;
@@ -1844,7 +2232,92 @@ div.rm-reference-container {
 #right-sidebar .roam-bullet-closed {
   /*background-color: #a7b6c2;*/
   background-color: var(--bullet-closed); /*RR change: orange color to match open bullets*/
-
+}
+#right-sidebar .rm-reference-main {
+  border: none;
+  padding: 0;
+}
+.rm-inline-img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.zoom-path-view {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: -12px;
+  margin-left: 4px;
+  margin-bottom: 12px;
+}
+.zoom-path-view .rm-zoom-mask {
+  mix-blend-mode: saturation;
+  background-color: white;
+  flex: 1 1 100%;
+}
+.zoom-mentions-view {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 12px;
+  margin-left: 8px;
+}
+.zoom-mentions-view .rm-inline-img {
+  max-height: 20px;
+  width: 20px;
+}
+.zoom-mentions-view .rm-mention-icon {
+  font-size: 8px;
+}
+.rm-zoom .rm-resize-img {
+  max-width: 24px !important;
+}
+.rm-zoom .rm-resize-img .hoveronly {
+  display: none;
+}
+.rm-zoom .rm-inline-img {
+  max-height: 24px;
+  max-width: 24px;
+}
+.rm-zoom .parent-path-wrapper {
+  max-height: 48px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.rm-zoom .parent-path-wrapper .roam-table {
+  display: none;
+}
+.rm-zoom .parent-path-wrapper .rm-query {
+  display: none;
+}
+/* RR change: moved this section to top of CSS for user options
+.rm-query {
+  border: 0.5px solid #bfccd6;
+  padding-bottom: var(--s1);
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  border-radius: 7px;
+}
+.rm-query .rm-query-title {
+  color: var(--primary-color);
+  background-color: var(--background-color);
+  padding: var(--s1);
+  font-size: .8em;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+} */
+.rm-mentions .rm-ref-page-view {
+  margin-top: 4px;
+  margin-left: 4px;
+}
+.rm-mentions .rm-ref-page-view .rm-ref-page-view-title {
+  font-size: 16px;
+}
+.rm-mentions .rm-ref-page-view .rm-title-arrow-wrapper {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+}
+.rm-mentions .rm-ref-page-view .rm-title-arrow-wrapper .rm-caret {
+  padding: 2px;
 }
 .rm-icon {
   color: #ced9e0;
@@ -1915,6 +2388,39 @@ div.rm-reference-container {
   margin-top: 20px;
   width: 70%;
 }
+.rm-pomodoro {
+  display: inline-block;
+}
+.rm-saving-icon {
+  height: 24px;
+  width: 24px;
+  align-items: center;
+  justify-content: center;
+}
+.rm-saving-icon .rm-saving-inner-icon {
+  border-radius: 50%;
+  opacity: 0.7;
+  width: 10px;
+  height: 10px;
+}
+.rm-saving-icon .rm-saving-local {
+  /* background-color: #99280f; */
+  background-color: var(--saving-local); /*RR change: added variable*/
+}
+.rm-saving-icon .rm-saving-remote {
+  background-color: #d9822b;
+  background-color: var(--saving-remote); /*RR change: added variable*/
+}
+.rm-saving-icon .rm-synced {
+  background-color: #0f9960;
+  background-color: var(--synched); /*RR change: added variable*/
+  }
+.rm-theme-selector div {
+  padding: var(--s1);
+}
+.rm-theme-selector div button {
+  margin: var(--s1);
+}
 .level1 {
   font-family: Roboto, sans-serif;
   font-weight: 200;
@@ -1924,7 +2430,7 @@ div.rm-reference-container {
   /*-ms-font-feature-settings:    'ss20' 1;*/
 }
 
-/*RR change: added missing style*/
+/*RR change: added missing styles*/
 .level2 {
   /* font-family: Roboto,sans-serif; */
   font-family: var(--main-font);
@@ -1968,38 +2474,11 @@ div.rm-reference-container {
   font-weight: 400;
   font-size: 1.4em;
 }
-
 .rm-pm-editor h3 {
   font-weight: 500;
   font-size: 1.2em;
   color: #5c7080;
 }
-
-/*RR change: Header styles*/
-.roam-app h1 {
-  color: var(--h1-font-color);
-  /* background-color: var(--h1-bg); */
-  padding-left: 0px;
-  margin-top: -4px !important;
-}
-/* Right Sidebar Page Titles */
-#right-sidebar h1.level2 a {
-  color: var(--page-link-color);
-}
-.roam-app h2 {
-  color: var(--h2-font-color);
-  /* background-color: var(--h1-bg); */
-  padding-left: 0px;
-  margin-top: -5px !important;
-}
-.roam-app h3 { 
-  font-weight: bold;
-  color: var(--h3-font-color);
-  /* background-color: var(--h1-bg); */
-  padding-left: 0px;
-  margin-top: -3px !important;
-}
-
 .rm-pm-editor img {
   max-width: 100%;
 }
@@ -2041,7 +2520,7 @@ div.rm-reference-container {
   border-radius: 2px;
 }
 .block-highlight-grey {
-  background-color: var(--block-highlight-grey);
+  background-color: #ced9e0;
 }
 .block-highlight-blue {
   /*background-color: #7cccff;*/
@@ -2073,6 +2552,7 @@ div.rm-reference-container {
 }
 .roam-block {
   min-height: calc(1.5em + 8px);
+  /* min-height: 1.5em; */
   box-sizing: border-box;
   white-space: pre-wrap;
   overflow-wrap: break-word;
@@ -2085,12 +2565,10 @@ div.rm-reference-container {
   padding-bottom: 4px;
 }
 /*RR change: theme font catch-all*/
-div.roam-block {
+/* div.roam-block { */
+.roam-block {
   font-family: var(--main-font);
   font-size: var(--main-font-size);
-}
-#roam-right-sidebar-content > div {
-    border-bottom: 1px solid var(--highlighted-background) !important;
 }
 #roam-right-sidebar-content div {
   font-family: var(--main-font);
@@ -2100,10 +2578,9 @@ div.roam-block {
 }
 .rm-block-text {
   /*max-width: 520px;*/
-  max-width: 100%; /*RR change: make references as wide as possible*/
-}
+  /*max-width: 100%; /*RR change: moved to top of sheet for easier configuration*/
+
 /*RR change: Theme body font settings*/
-div.rm-block-text {
   font-family: var(--main-font);
   font-size: var(--main-font-size);
 }
@@ -2131,8 +2608,9 @@ div.rm-block-text {
 .controls {
   display: flex;
   flex: 0 0 40px;
-  padding-top: 4px;
+  /* padding-top: 4px; */
   padding-left: 4px;
+  padding-top: 2px; /*RR change: slight adjustment for bullet position*/
 }
 .controls .block-expand {
   transform: scale(1);
@@ -2241,7 +2719,9 @@ div.rm-block-text {
   background-color: #bfccd6;
 }
 .block-ref-count-button {
-  /* font-size: 0.9em; */
+  /* font-size: 0.8em; */
+  /* opacity: 0.5; */
+  cursor: pointer;
   font-size: var(--ref-count-font-size); /*RR change: added variable*/
 }
 .rm-grey-text {
@@ -2264,6 +2744,9 @@ div.rm-block-text {
 }
 .flex-justify-start {
   justify-content: flex-start;
+}
+.flex-align-self-flex-end {
+  align-self: flex-end;
 }
 .tags-input {
   display: inline-block;
@@ -2320,8 +2803,10 @@ div {
   padding: 0px;
 }
 textarea {
-  font-family: var(--main-font);
-  font-size: var(--main-font-size);
+  /* font-family: 'Inter', sans-serif; */
+  /* font-size: 1em; */
+  font-family: var(--main-font); /*RR change: added variable*/
+  font-size: var(--main-font-size); /*RR change: added variable*/
   line-height: 1.5em;
   margin: 0px;
   padding: 0px;
@@ -2345,6 +2830,9 @@ font-size: 1.0em;
 .display-inline-flex {
   display: -webkit-inline-flex;
   display: inline-flex;
+}
+.flex {
+  flex: 1;
 }
 .react-resizable {
   position: relative;
@@ -2380,6 +2868,14 @@ font-size: 1.0em;
   user-select: none;
   /* Non-prefixed version, currently */
 }
+.margin-none {
+  margin: 0;
+}
+
+/* ----------------------------------------- */
+/* End of standard Roam Styles */
+/* ----------------------------------------- */
+
 
 /*RR change: Icon color*/
 .bp3-button .bp3-icon, 
@@ -2455,17 +2951,24 @@ bp3-button bp3-small block-ref-count-button*/
 
 /* Input Text Color */
 .bp3-input {
-  color: var(--search-font-color);
+  color: var(--popover-font-color);
 }
 
 /* Roam Search Box Field and Border */
 .bp3-input,
 .bp3-input[readonly]{ 
   background: var(--search-bg);
-  box-shadow: inset 0 0 0 1px var(--search-outline);
+  /* box-shadow: inset 0 0 0 1px var(--search-outline); */
+  box-shadow: none;
   font-size: 0.85em;
 }
-
+.bp3-input:focus, .bp3-input.bp3-active {
+  /* -webkit-box-shadow: 0 0 0 1px #137cbd, 0 0 0 3px rgba(19,124,189,0.3), inset 0 1px 1px rgba(16,22,26,0.2); */
+  box-shadow: 0 0 0 1px var(--search-outline);
+  /* -webkit-box-shadow: none; */
+  /* box-shadow: none; */
+  border: var(--search-outline);
+}
 /*RR change: additional text styles*/
 .roam-app strong {
   color: var(--strong) !important;
@@ -2490,14 +2993,14 @@ bp3-button bp3-small block-ref-count-button*/
 #roam-right-sidebar-content a {
   color: var(--sidebar-link-color);
 }
-.roam-right-sidebar-content a:focus, 
-.roam-right-sidebar-content a:hover {
+#roam-right-sidebar-content a:focus, 
+#roam-right-sidebar-content a:hover {
   color: var(--sidebar-link-color);
   text-decoration: underline;
 }
 hr {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 0.5625em;
+  margin-bottom: 2.5em;
   border: 0;
   border-top: 1px solid var(--hr);
 }
@@ -2515,7 +3018,7 @@ hr {
 .bp3-popover .bp3-popover-content,
 .bp3-menu {
   background: var(--popover-bg);
-  color: var(--search-font-color);
+  color: var(--popover-font-color);
   border-radius: 4px;
 }
 
@@ -2532,14 +3035,14 @@ hr {
 }
 
 .bp3-html-select.bp3-minimal select {
-  color: var(--search-font-color);
+  color: var(--popover-font-color);
   background-color: var(--select-bg);  
 }
 
 /* Slash Popup */
 div.bp3-elevation-3 {
   /* color: #1775db; */
-  color: var(--search-font-color);
+  color: var(--popover-font-color);
   background-color: var(--inline-search-bg) !important;
   font-size: 0.85em;
   border-radius: 4px;
@@ -2548,11 +3051,11 @@ div.bp3-elevation-3 {
 }
 [title~=Search] {
   color: #1775db !important; /*RR change: Bi-directional place holder text*/
-  color: var(--search-font-color) !important; /*RR change: Bi-directional place holder text*/
+  color: var(--popover-font-color) !important; /*RR change: Bi-directional place holder text*/
 }
 .bp3-elevation-3 .dont-unfocus-block[style*="background-color: rgb(213, 218, 223);"],
 .bp3-popover-content .rm-menu-item[style*="background-color: rgb(213, 218, 223);"]  {
-  background-color: #4c4c4c !important;    
+  background-color: var(--search-selected-row) !important;    
 /*filter: invert(100%); /*RR change: Inverts the colors of the / and link search menus*/
 
 }
@@ -2603,7 +3106,7 @@ select {
 
 div[style^='overflow: hidden; margin-left: -8px; background-color: rgb(235, 241, 245); margin-top: -4px;']{
   background-color: var(--block-embed-bg) !important;
-  font-size: var(--block-embed-font-size);
+  /* font-size: var(--block-embed-font-size); */
 }
 
 /*RR change: Very fragile override for alias styes, will probably break*/
@@ -2627,7 +3130,7 @@ span[style*='background-color: green;'] {
 /*RR change: Very fragile overrides for a page embed*/
 .roam-block div[style*="background-color: rgb(235, 241, 245);" ] {
   background-color: var(--reference-item-bg) !important;
-  font-size: 0.8em;
+  /* font-size: 0.8em; */
   padding: 10px;
   padding-top: 17px;
 }
@@ -2651,7 +3154,7 @@ background-color: transparent;
     -webkit-box-shadow: inset 0 0 0 1px rgba(16,22,26,0.4), inset 0 -1px 0 rgba(16,22,26,0.2);
     box-shadow: inset 0 0 0 1px rgba(16,22,26,0.4), inset 0 -1px 0 rgba(16,22,26,0.2);
     background-color: var(--checkmark-color);
-    opacity: 80%;
+    opacity: .8;
 }
 
 /*RR change: Diagram styles*/
@@ -2722,6 +3225,7 @@ code {
     border: 0px solid #13191e;
     padding: 3px 4px 3px 4px;
     font-family: var(--code-font);
+    font-size: var(--code-font-size);
 }
 
 
@@ -2735,55 +3239,47 @@ code {
 div.CodeMirror .CodeMirror-code pre {
   font-family: var(--code-font);
   line-height: 1.5em;
-  font-size: 1.1em;
+  font-size: var(--code-font-size);
 }
 
-/*<!--activeline-->*/
-.CodeMirror-activeline-background { background: var(--highlighted-background); }
+.CodeMirror {background: var(--code-bg); color: #f4f1ed; font-size: var(--code-font-size); border-radius: 8px;}
+div.CodeMirror-selected {background: #4d516d !important;}
+.CodeMirror-gutters {background: #2b2b2b; border-right: 1px solid #333;}
+.CodeMirror-linenumber {color: var(--page-link-color);}
+.CodeMirror-cursor {border-left: 1px solid #d4cfc9 !important;}
 
-.CodeMirror {background: var(--main-background); color: var(--font); font-size: 0.85em;}
-div.CodeMirror-selected {background: var(--highlighted-background) !important;}
-.CodeMirror-line::selection, .CodeMirror-line > span::selection, .CodeMirror-line > span > span::selection { background: rgba(68, 68, 119, .99); }
-.CodeMirror-line::-moz-selection, .CodeMirror-line > span::-moz-selection, .CodeMirror-line > span > span::-moz-selection { background: rgba(68, 68, 119, .99); }
-.CodeMirror-gutters {background: var(--highlighted-background); border-right: 1px solid var(--highlighted-background);}
-.CodeMirror-guttermarker { color: white !important; }
-.CodeMirror-guttermarker-subtle { color: #bbb !important; }
-.CodeMirror-linenumber {color: var(--primary-light);}
-.CodeMirror-cursor {border-left: 1px solid var(--font-dark) !important;}
+span.cm-comment {color: #bc9458;}
+span.cm-atom {color: #b6b3eb;}
+span.cm-number {color: #b6b3eb;}
+.cm-s-default .cm-number {color: #b6b3eb;}
 
-span.cm-qualifier { color: #666666 !important; }
-span.cm-comment {color: var(--reference);}
-span.cm-atom {color: var(--primary-dark);}
-span.cm-number {color: var(--primary-dark);}
-span.cm-attribute { color: #ffd500 !important; }
-.cm-s-default .cm-number {color: var(--primary-dark);}
+span.cm-property,  span.cm-attribute {color: #a5c261;}
+span.cm-keyword {color: #da4939;}
+.cm-s-default .cm-keyword {color: #da4939;}
+span.cm-string {color: #ffc66d;}
+.cm-s-default .cm-string {color: #ffc66d;}
 
-span.cm-property,  span.cm-attribute {color: var(--external-link);}
-span.cm-keyword {color: var(--highlight);}
-.cm-s-default .cm-keyword {color: var(--highlight);}
-span.cm-string {color: var(--reference);}
-.cm-s-default .cm-string {color: var(--reference);}
-
-span.cm-variable {color: var(--primary-light);}
-span.cm-variable-2 {color: var(--external-link);}
-span.cm-variable-3, span.cm-def, span.cm-type { color: white !important; }
-span.cm-def {color: var(--reference);}
-span.cm-error {/*background: #da4939;*/ color: var(--tag);}
-span.cm-bracket {color: var(--font);}
-span.cm-builtin, pan.cm-special { color: #ff9e59 !important; }
-span.cm-tag {color: var(--tag);}
-span.cm-link {color: var(--primary-dark);}
-span.cm-meta { color: #369BFF !important; }
+span.cm-variable-2 {color: #a5c261;}
+span.cm-variable {color: #6d9cbe;}
+span.cm-def {color: #cc7833;}
+span.cm-error {/*background: #da4939;*/ color: #da4939;}
+span.cm-bracket {color: #f4f1ed;}
+span.cm-tag {color: #da4939;}
+span.cm-link {color: #b6b3eb;}
 
 
-.cm-s-default .cm-atom { color: var(--primary-dark);}
+/*RR change: Added styles*/
 
 /* .CodeMirror-matchingbracket { text-decoration: underline; color: white !important;} */
-.CodeMirror-matchingbracket { outline:1px solid var(--reference); color:#fff !important; }
-.CodeMirror-activeline-background { background: var(--primary); }
+.CodeMirror-matchingbracket { outline:1px solid #ff9c3a; color:#fff !important; }
+.CodeMirror-activeline-background { background: #5a5acc; }
 
-.CodeMirror pre {background: var(--main-background);}
+/*<!--activeline-->*/
+.CodeMirror-activeline-background { background: #253540; }
 
+/*.CodeMirror pre {background: var(--code-bg);}*/
+.CodeMirror-lines {background: var(--code-bg);}
+.CodeMirror-activeline pre {background: #253540; /* SPM ADDED */}
 
-.CodeMirror-lines {background: var(--secondary-background);}
-.CodeMirror-activeline pre {background: var(--highlighted-background); /* SPM ADDED */}
+.cm-s-default .cm-atom { color: #2983bb;}
+.cm-s-default .cm-builtin {color: #db6bff;}
